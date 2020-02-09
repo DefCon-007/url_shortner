@@ -10,5 +10,14 @@ This is a test
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
+{% if showAlert %}
+            <script>
+                Swal.fire({
+          icon: '{{ icon }}',
+          title: '{{ title }}',
+          text: '{{text}}',
+        })
+            </script>
+    {% endif %}
 </form>
 {% endblock %}
