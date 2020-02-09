@@ -15,6 +15,8 @@ In terminal type the following commands.
 
 - Activate the enviroment
 `source ./env/bin/activate`
+- Install the requirements
+`pip install -r requirements.txt`
 - Apply the django migrations (Use make migrations if you make changes to models.)
 `python manage.py makemigrations`
 `python manage.py migrate`
@@ -25,7 +27,7 @@ In terminal type the following commands.
 
 After setting up the django project following the above steps, from the root directory use the following commands. 
 
-###- Shortening a URL:
+### - Shortening a URL:
 
 `python manage.py short --url <URL>` 
 
@@ -38,7 +40,7 @@ Just add an argument `--name <SHORT_NAME>` to use a custom placeholder for the U
 <img width="739" alt="Screenshot 2020-02-09 at 10 13 28 PM" src="https://user-images.githubusercontent.com/16754547/74106100-a93a6280-4b89-11ea-83a4-9cf9c0ff65ff.png">
 
  
-###- Using a file as import: 
+### - Using a file as import: 
 
 `python manage.py short --file <PATH_TO_FILE>`
 
@@ -57,7 +59,7 @@ http://www.google.com
 http://www.google.com
 ```
 
-###- Saving the output to a file: 
+### - Saving the output to a file: 
 
 `python manage.py short --file <INPUT FILE PATH> --out <OUTPUT FILE PATH>`
 
@@ -66,7 +68,7 @@ Just add the flag `--out` with complete path of the output file and the previous
 <img width="836" alt="Screenshot 2020-02-09 at 10 01 19 PM" src="https://user-images.githubusercontent.com/16754547/74105899-d423b700-4b87-11ea-8f2c-b39473dfaaf5.png">
 
 
-###- Using custom short names with file input:
+### - Using custom short names with file input:
 
 Just separate the short name you like for the URL with a space in the file. 
 
