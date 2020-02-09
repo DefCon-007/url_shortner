@@ -7,10 +7,3 @@ from django import forms
 class ShortUrls(models.Model):
     short_name = models.CharField(max_length=10, unique=True)
     url = models.TextField(validators=[URLValidator()])
-
-
-class UrlForm(forms.ModelForm):
-    class Meta:
-        model = ShortUrls
-        fields = ['url', 'short_name']
-
