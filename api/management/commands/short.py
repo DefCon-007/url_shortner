@@ -6,10 +6,11 @@ from api.exceptions import InvalidURLException
 from django.conf import settings
 
 @click.command()
-@click.option('--url')
+@click.option('--url', help='The URL to be shortened')
+@click.option('--name', default=None, help='Name to use as placeholder for long url')
 @click.option('--file', default=None, help='Please give the full path of URL file.')
 @click.option('--out', default=None, help='(Optional) Please give the full path of file to store short names.')
-def command(url, file, out):
+def command(url, name, file, out):
     if file:
         with open(file, "r") as f:
             data = []
@@ -24,13 +25,14 @@ def command(url, file, out):
             if out:
                 with open(out, 'w+') as o:
                     o.write(names_str)
+                click.secho("Short URLs saved at {}".format(out), fg="green")
             else:
                 click.secho("Following are the short names for given URL", fg="green")
                 for i in short_names:
-                    click.secho("http://{}/".format(settings.BASE_URL),i)
+                    click.secho("http://{}/{}".format(settings.BASE_URL,i))
     if url:
         try:
-            short = add_new_url(url)
+            short = add_new_url(url, name)
             click.secho("Short URL created. Goto http://{}/{}".format(settings.BASE_URL, short), fg="green")
         except InvalidURLException:
             click.secho("Invalid URL please try again!", fg="red")

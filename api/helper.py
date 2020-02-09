@@ -33,4 +33,4 @@ def add_list_of_urls(url_list):
     """
     query_set = [ShortUrls(url=tup[0], short_name=tup[1] if tup[1] else get_random_string()) for tup in url_list]
 
-    return ["http://{}/{}".format(settings.BASE_URL,d.short_name) for d in ShortUrls.objects.bulk_create(query_set)]
+    return [d.short_name for d in ShortUrls.objects.bulk_create(query_set)]
