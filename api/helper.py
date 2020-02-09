@@ -4,6 +4,7 @@ from api.models import ShortUrls
 from django.core.exceptions import ValidationError
 from api.exceptions import InvalidURLException
 
+
 def get_random_string(size=6, chars=string.ascii_lowercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
